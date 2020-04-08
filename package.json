@@ -9,7 +9,14 @@
     "debug": "cross-env ENV=DEVELOPMENT DEBUG=* node ."
   },
   "dependencies": {
-    "cross-env": "^7.0.2"
+    "bufferutil": "^4.0.1",
+    "cross-env": "^7.0.2",
+    "debug": "^4.1.1",
+    "eris": "^0.11.2",
+    "erlpack": "abalabahaha/erlpack",
+    "eventemitter3": "^4.0.0",
+    "node-opus": "^0.3.3",
+    "zlib-sync": "^0.1.6"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
