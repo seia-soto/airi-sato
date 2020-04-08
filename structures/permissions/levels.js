@@ -1,5 +1,1 @@
-module.exports = [
-  'staff',
-  'manager',
-  'user'
-]
+module.exports = {}

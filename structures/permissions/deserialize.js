@@ -1,13 +1,14 @@
+const { permissions } = require('../../config')
 const debug = require('./debug')
-const flags = require('./flags')
 const levels = require('./levels')
 
 module.exports = () => {
   debug('deserializing permission levels')
 
-  for (let i = 0, l = levels.length; i < l; i++) {
-    debug(`deserialized '${levels[i]}' as '${1 << i}'`)
+  for (let i = 0, l = permissions.length; i < l; i++) {
+    debug(`assign flag '${1 << i}' to '${permissions[i].name}'`)
 
-    flags[levels[i]] = 1 << i
+    permissions[i].flag = 1 << i
+    levels[permissions[i].name] = permissions[i]
   }
 }
