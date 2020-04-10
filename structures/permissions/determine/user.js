@@ -3,7 +3,7 @@ const levels = require('../levels')
 const levelNames = Object.keys(levels)
 
 module.exports = async member => {
-  let flag = 0
+  let flag = 1
 
   for (let i = 0, l = levelNames.length; i < l; i++) {
     const level = levels[levelNames[i]]
@@ -26,6 +26,12 @@ module.exports = async member => {
       continue
     }
 
-    flag = flag | level.flag
+    for (let k = 0, s = i; k < s; k++) {
+      flag = flag | 1 << k
+    }
+
+    break
   }
+
+  return flag
 }

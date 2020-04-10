@@ -28,7 +28,11 @@ module.exports = {
         'TYPING_START',
         'USER_UPDATE',
         'VOICE_STATE_UPDATE'
-      ]
+      ],
+      disableEveryone: true,
+      largeThreshold: 25,
+      messageLimit: 25,
+      opusOnly: true
     }
   },
   database: {
@@ -39,12 +43,7 @@ module.exports = {
   },
   permissions: [
     {
-      name: 'staff',
-      terms: {
-        id: [
-          '' // NOTE: Developer's user ID.
-        ]
-      }
+      name: 'user'
     },
     {
       name: 'moderator',
@@ -53,8 +52,20 @@ module.exports = {
           'MANAGE_GUILD'
         ]
       }
+    },
+    {
+      name: 'staff',
+      terms: {
+        id: [
+          '' // NOTE: Developer's user ID.
+        ]
+      }
     }
   ],
+  ratelimit: {
+    historyExpiresIn: 2 * 1000,
+    maxRequestSize: 4
+  },
   settings: {
     defaults: {
       guilds: {
@@ -62,8 +73,12 @@ module.exports = {
         flag: 0
       },
       users: {
+        language: 'ko',
         flag: 0
       }
     }
+  },
+  translations: {
+    defaultLanguage: 'ko'
   }
 }
