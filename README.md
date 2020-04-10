@@ -31,7 +31,7 @@ I think I can express my application with Eris.JS more than Discord.JS.
 
 ## Requirements
 
-To install this project, you need install following pre-requirements and dependencies.
+To install this project, you need to install following pre-requirements and dependencies.
 
 - `Node.JS` v10 or higher
 - `NPM` (installed with `Node.JS`)
