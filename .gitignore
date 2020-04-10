@@ -117,3 +117,7 @@ dist
 # Project files
 
 config.js
+
+# Post-used assets
+
+bin/

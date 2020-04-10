@@ -30,5 +30,40 @@ module.exports = {
         'VOICE_STATE_UPDATE'
       ]
     }
+  },
+  database: {
+    client: 'sqlite3',
+    connection: {
+      filename: './bin/main.db'
+    }
+  },
+  permissions: [
+    {
+      name: 'staff',
+      terms: {
+        id: [
+          '' // NOTE: Developer's user ID.
+        ]
+      }
+    },
+    {
+      name: 'moderator',
+      terms: {
+        permission: [
+          'MANAGE_GUILD'
+        ]
+      }
+    }
+  ],
+  settings: {
+    defaults: {
+      guilds: {
+        prefix: 'se',
+        flag: 0
+      },
+      users: {
+        flag: 0
+      }
+    }
   }
 }
