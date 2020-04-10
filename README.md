@@ -1,8 +1,9 @@
 # airi-sato
 
-The Discord automation base template for Airi-Sato.
+The Discord automation application.
 
-> The next project of [`scriptoned`](https://github.com/Seia-Soto/scriptoned) which rewrote with Eris.JS instead of Discord.JS.
+> This is next project of [`scriptoned`](https://github.com/Seia-Soto/scriptoned) which rewrote with Eris.JS instead of Discord.JS.
+> If you're interested in base template, you should search for `base` branch which doesn't contains any command and assets excluding `ping`.
 
 ## Table of Contents
 
