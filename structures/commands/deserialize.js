@@ -13,7 +13,7 @@ module.exports = () => {
       const command = commands[commandNames[k]]
 
       command.aliases = command.aliases || []
-      command.category = command.category || categoryNames[i]
+      command.category = categoryNames[i]
       command.name = commandNames[k]
       command.permission = 0 // NOTE: Permissions in bitfield
       command.permissions = command.permissions || ['user'] // NOTE: Permissions in array
@@ -22,12 +22,12 @@ module.exports = () => {
         command.permission = command.permission | levels[command.permissions[j]].flag
       }
 
-      collection[commandNames[i]] = command
+      collection[commandNames[k]] = command
 
       for (let j = 0, n = command.aliases.length; j < n; j++) {
         const commandObj = Object.assign({ alias: true }, command)
 
-        collection[commandNames[k]] = commandObj
+        collection[command.aliases[j]] = commandObj
       }
     }
   }

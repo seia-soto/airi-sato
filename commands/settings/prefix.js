@@ -15,7 +15,6 @@ module.exports = {
       message.channel.createMessage(opts.translation.invalidPrefix)
     }
   },
-  category: 'settings',
   permissions: [
     'moderator'
   ]

@@ -5,7 +5,6 @@ module.exports = {
   aliases: [
     'pong'
   ],
-  category: 'utils',
   permissions: [
     'user'
   ]

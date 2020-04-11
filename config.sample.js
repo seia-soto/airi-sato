@@ -78,6 +78,12 @@ module.exports = {
       }
     }
   },
+  flags: {
+    guilds: [
+      'color'
+    ],
+    users: []
+  },
   translations: {
     defaultLanguage: 'ko'
   }
