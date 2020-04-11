@@ -2,6 +2,7 @@ const { settings } = require('../../config')
 const { knex } = require('../database')
 const cache = require('./cache')
 const debug = require('./debug')
+const update = require('./update')
 
 module.exports = async (type, serviceId) => {
   try {
@@ -28,6 +29,8 @@ module.exports = async (type, serviceId) => {
 
         item = initialData
       }
+
+      item.update = async () => await update(type, item)
 
       cache[type][serviceId] = item
     }

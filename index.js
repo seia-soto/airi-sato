@@ -9,6 +9,21 @@ const pkg = require('./package')
 const app = new Eris(config.app.token, config.app.options)
 const handlerNames = Object.keys(handlers)
 
+String.prototype.bind = function (parameters) {
+  let text = this
+  const keys = text.match(/\{(.*?)\}/g)
+
+  if (!keys) return this
+
+  for (let i = 0; i < keys.length; i++) {
+    const keyname = keys[i].replace('{', '').replace('}', '')
+
+    text = text.replace(keys[i], parameters[keyname] || '')
+  }
+
+  return text
+}
+
 module.exports = (async () => {
   debug(`starting ${pkg.name}@v${pkg.version} at ${Date.now()}`)
 

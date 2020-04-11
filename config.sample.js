@@ -43,7 +43,12 @@ module.exports = {
   },
   permissions: [
     {
-      name: 'user'
+      name: 'staff',
+      terms: {
+        id: [
+          '' // NOTE: Developer's user ID.
+        ]
+      }
     },
     {
       name: 'moderator',
@@ -54,12 +59,7 @@ module.exports = {
       }
     },
     {
-      name: 'staff',
-      terms: {
-        id: [
-          '' // NOTE: Developer's user ID.
-        ]
-      }
+      name: 'user'
     }
   ],
   ratelimit: {

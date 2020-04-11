@@ -32,7 +32,7 @@ module.exports = async (app, message) => {
 
   message.guild.settings = await settings.get('guilds', message.guild.id)
   message.member.settings = await settings.get('users', message.member.id)
-  message.member.flag = await permissions.determine.user(message.member)
+  message.member.flag = await permissions.accumulate(message.member)
 
   message.prefix = test.message.isPrefixed(message.content, [message.guild.settings.prefix])
 
@@ -47,7 +47,7 @@ module.exports = async (app, message) => {
   const command = commands.collection[message.command]
   const isCommandApplicable =
     (command) &&
-    (command.permission & message.member.flag)
+    (message.member.flag & command.permission)
 
   if (!isCommandApplicable) return
 

@@ -1,1 +1,3 @@
-module.exports.pong = '퐁!'
+module.exports = {
+  pong: '퐁!'
+}

@@ -11,7 +11,6 @@ module.exports = () => {
     permissions[i].flag = 1 << i
     permissions[i].id = permissions[i].id || []
     permissions[i].permission = permissions[i].permission || []
-    permissions[i].term = permissions[i].term || {}
 
     levels[permissions[i].name] = permissions[i]
   }

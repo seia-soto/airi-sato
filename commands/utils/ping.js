@@ -7,7 +7,6 @@ module.exports = {
   ],
   category: 'utils',
   permissions: [
-    'user',
-    'staff'
+    'user'
   ]
 }

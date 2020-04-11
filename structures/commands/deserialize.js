@@ -15,7 +15,7 @@ module.exports = () => {
       command.aliases = command.aliases || []
       command.category = command.category || categoryNames[i]
       command.name = commandNames[k]
-      command.permission = 1 // NOTE: Permissions in bitfield
+      command.permission = 0 // NOTE: Permissions in bitfield
       command.permissions = command.permissions || ['user'] // NOTE: Permissions in array
 
       for (let j = 0, t = command.permissions.length; j < t; j++) {
