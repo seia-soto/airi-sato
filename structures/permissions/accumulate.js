@@ -21,15 +21,15 @@ module.exports = async member => {
 
     const isPermissionSuitable =
       (!terms.id.length || terms.id.includes(member.id)) &&
-      (!terms.permission.length || requiredPermissionSize === terms.permission.length)
+      (!terms.permission.length || requiredPermissionSize >= terms.permission.length)
 
     if (!isPermissionSuitable) continue
-
-    debug(`applying all subsequence permission of '${permission.name}' to '${member.username} (${member.id})'`)
 
     for (let k = i; k < l; k++) {
       flag = flag | 1 << k
     }
+
+    debug(`applying all subsequence permission of '${permission.name} (${flag})' to '${member.username} (${member.id})'`)
 
     break
   }

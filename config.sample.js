@@ -54,7 +54,7 @@ module.exports = {
       name: 'moderator',
       terms: {
         permission: [
-          'MANAGE_GUILD'
+          'manageGuild'
         ]
       }
     },
