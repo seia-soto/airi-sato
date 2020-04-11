@@ -19,13 +19,13 @@ module.exports = {
 
       await message.guild.settings.update()
 
-      message.channel.createMessage(opts.translation.enabledFeature.bind({ featureName }))
+      message.channel.createMessage(opts.translation.disabledFeature.bind({ featureName }))
     } else {
       message.guild.settings.flag = message.guild.settings.flag | featureFlag
 
       await message.guild.settings.update()
 
-      message.channel.createMessage(opts.translation.disabledFeature.bind({ featureName }))
+      message.channel.createMessage(opts.translation.enabledFeature.bind({ featureName }))
     }
   },
   permissions: [
