@@ -40,14 +40,16 @@ module.exports = {
       return message.channel.createMessage(opts.translation.invalidColorCode)
     }
 
-    const roleName = '#' + matched[0]
+    const color = matched[1]
+    const roleName = '#' + color
+
     let colorRole = await message.guild.roles.find(role => role.name === roleName)
 
     if (!colorRole) {
       colorRole = await message.guild.createRole({
         name: roleName,
         permissions: 0,
-        color: parseInt(matched[0]),
+        color: parseInt(color),
         hoist: false,
         mentionable: false
       })
