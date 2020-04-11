@@ -1,3 +1,4 @@
+module.exports.color = require('./color')
 module.exports.flags = require('./flags')
 module.exports.ping = require('./ping')
 module.exports.prefix = require('./prefix')
