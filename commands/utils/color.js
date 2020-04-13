@@ -49,7 +49,7 @@ module.exports = {
       colorRole = await message.guild.createRole({
         name: roleName,
         permissions: 0,
-        color: parseInt(color),
+        color: parseInt(color, 16),
         hoist: false,
         mentionable: false
       })
