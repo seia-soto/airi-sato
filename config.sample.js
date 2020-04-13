@@ -63,8 +63,14 @@ module.exports = {
     }
   ],
   ratelimit: {
-    historyExpiresIn: 2 * 1000,
-    maxRequestSize: 4
+    command: {
+      historyExpiresIn: 2 * 1000,
+      maxRequestSize: 4
+    },
+    'command.find': {
+      historyExpiresIn: 4 * 1000,
+      maxRequestSize: 1
+    }
   },
   settings: {
     defaults: {
