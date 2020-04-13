@@ -1,3 +1,6 @@
 module.exports.accumulate = require('./accumulate')
+module.exports.debug = require('./debug')
 module.exports.histories = require('./histories')
 module.exports.isLimited = require('./isLimited')
+module.exports.profiles = require('./profiles')
+module.exports.registerProfiles = require('./registerProfiles')

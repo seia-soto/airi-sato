@@ -6,12 +6,13 @@ module.exports = () => {
   debug('deserializing permission levels')
 
   for (let i = 0, l = permissions.length; i < l; i++) {
-    debug(`assign flag '${1 << i}' to '${permissions[i].name}' permission node`)
+    const permission = permissions[i]
+    const flag = 1 << i
 
-    permissions[i].flag = 1 << i
-    permissions[i].id = permissions[i].id || []
-    permissions[i].permission = permissions[i].permission || []
+    debug(`assign flag '${flag}' to '${permission.name}' permission node`)
 
-    levels[permissions[i].name] = permissions[i]
+    permission.flag = flag
+
+    levels[permission.name] = permission
   }
 }

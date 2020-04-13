@@ -23,8 +23,5 @@ module.exports = {
     }
 
     message.channel.createMessage({ embed })
-  },
-  permissions: [
-    'user'
-  ]
+  }
 }

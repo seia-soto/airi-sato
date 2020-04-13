@@ -4,8 +4,5 @@ module.exports = {
   },
   aliases: [
     'pong'
-  ],
-  permissions: [
-    'user'
   ]
 }

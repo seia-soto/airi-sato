@@ -61,8 +61,5 @@ module.exports = {
   },
   aliases: [
     'colors'
-  ],
-  permissions: [
-    'user'
   ]
 }

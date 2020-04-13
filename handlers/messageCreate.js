@@ -20,14 +20,8 @@ module.exports = async (app, message) => {
     (message.type === 0) && // NOTE: If message type is `default`
     (message.channel.type === 0) && // NOTE: If channel is `text channel`
     (!ratelimit.isLimited('command', message.member.id)) &&
-    (
-      message.guild.client.permission.has('sendMessages') ||
-      message.channel.permissionOverwrites.has('sendMessages')
-    ) &&
-    (
-      message.guild.client.permission.has('embedLinks') ||
-      message.channel.permissionOverwrites.has('embedLinks')
-    )
+    (message.channel.permissionsOf(app.user.id).has('sendMessages')) &&
+    (message.channel.permissionsOf(app.user.id).has('embedLinks'))
   if (!isEnvironmentPreferred) return
 
   message.guild.settings = await settings.get('guilds', message.guild.id)
