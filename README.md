@@ -2,7 +2,8 @@
 
 The Discord automation application.
 
-> This is next project of [`scriptoned`](https://github.com/Seia-Soto/scriptoned) which rewrote with Eris.JS instead of Discord.JS.
+- [Invite](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=0&scope=bot)
+- [Official Discord server](https://discordapp.com/invite/vAEBXWY)
 
 ## Table of Contents
 
@@ -12,20 +13,6 @@ The Discord automation application.
 - [Development](#development)
 
 ----
-
-# Questions
-
-## Why Eris.JS instead of Discord.JS?
-
-The first structure of my Discord bot was formed with Discord.JS v9.
-There is no history that I used Discord.JS v9 because I was not a member of GitHub.
-When I use Discord.JS v9, people said the release speed of Discord.JS too fast just-like now.
-However, it worked well enough for me even for music around functions.
-Now, Discord.JS releases v12 and looks totally messed up.
-They created `cache` and a lot of abstract objects, but what actually they need is stabilization.
-The code doesn't work as people expected, voice connection related things always crashes up since v11.6.1.
-In contrast, Eris.JS has stable and less-abstracted the code.
-I think I can express my application with Eris.JS more than Discord.JS.
 
 # Installation
 
@@ -67,3 +54,41 @@ yarn --prod
 Move `config.sample.js` to `config.js` and fill out the blanks.
 
 > This application won't create the database file if not exists, you should do manually.
+
+# Scripts
+
+## `yarn debug`
+
+Allow application to log from all modules.
+
+- ENV: DEVELOPMENT
+- DEBUG: *
+
+```sh
+yarn debug
+```
+
+## `yarn start`
+
+Allow application to log from `airi-sato` modules.
+
+- ENV: PRODUCTION
+- DEBUG: airi-sato*
+
+```sh
+yarn start
+```
+
+# Questions
+
+## Why Eris.JS instead of Discord.JS?
+
+The first structure of my Discord bot was formed with Discord.JS v9.
+There is no history that I used Discord.JS v9 because I was not a member of GitHub.
+When I use Discord.JS v9, people said the release speed of Discord.JS too fast just-like now.
+However, it worked well enough for me even for music around functions.
+Now, Discord.JS releases v12 and looks totally messed up.
+They created `cache` and a lot of abstract objects, but what actually they need is stabilization.
+The code doesn't work as people expected, voice connection related things always crashes up since v11.6.1.
+In contrast, Eris.JS has stable and less-abstracted the code.
+I think I can express my application with Eris.JS more than Discord.JS.
