@@ -21,5 +21,9 @@ module.exports = {
 > 순위: {rank}
 > 태그: {tags}
 > 이전 기간 대비: {yes_rank}
-> [Pixiv에서 아트워크 보기](https://pixiv.net/artworks/{illust_id})`
+> [Pixiv에서 아트워크 보기](https://pixiv.net/artworks/{illust_id})`,
+  pixiv: 'Pixiv',
+  baseDescription: 'Pixiv 검색 혹은 랭킹을 최대 5개까지 즉시 볼 수 있습니다.',
+  rankingUsage: 'Pixiv의 일러스트 랭킹을 가져옵니다. mode 값은 daily(일일)가 기본값이며 부가적으로 weekly, monthly, rookie를 사용할 수 있습니다. 랭킹에서 성인 컨텐츠는 일반 채널인 경우 자동으로 삭제됩니다.',
+  searchUsage: 'Pixiv에서 일러스트를 검색합니다. keyword 값은 필수값입니다.'
 }

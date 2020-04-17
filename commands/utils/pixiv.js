@@ -13,7 +13,7 @@ module.exports = {
         const keyword = message.arguments.join(' ')
         const embed = {
           title: opts.translation.pixivSearch,
-          description: opts.translation.searchResult.bind({ keyword }) + opts.translation.sharedWarning,
+          description: `${opts.translation.searchResult.bind({ keyword })}\n${opts.translation.sharedWarning}`,
           fields: []
         }
         const artworks = await pixiv.search({
@@ -49,8 +49,7 @@ module.exports = {
         const localizedModeName = opts.translation.rankingModes[mode]
         const embed = {
           title: opts.translation.pixivRanking.bind({ mode: localizedModeName }),
-          description: `${opts.translation.rankingResult.bind({ mode: localizedModeName })}
-${opts.translation.sharedWarning}`,
+          description: `${opts.translation.rankingResult.bind({ mode: localizedModeName })}\n${opts.translation.sharedWarning}`,
           fields: []
         }
         const artworks = await pixiv.ranking({
@@ -78,6 +77,26 @@ ${opts.translation.sharedWarning}`,
         }
 
         message.channel.createMessage({ embed })
+
+        break
+      }
+      default: {
+        message.channel.createMessage({
+          embed: {
+            title: opts.translation.pixiv,
+            description: opts.translation.baseDescription,
+            fields: [
+              {
+                name: 'ranking [mode]',
+                value: opts.translation.rankingUsage
+              },
+              {
+                name: 'search <keyword>',
+                value: opts.translation.searchUsage
+              }
+            ]
+          }
+        })
       }
     }
   }
