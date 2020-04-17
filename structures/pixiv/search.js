@@ -14,6 +14,7 @@ module.exports = async opts => {
   data.body = data.body || {}
   data.body.illust = data.body.illust || {}
   data.body.illust.data = data.body.illust.data || []
+  data.body.illust.data = data.body.illust.data.splice(0, opts.limit || 5)
 
-  return data.body.illust.data.filter(item => !item.isAdContainer).splice(0, opts.limit || 5)
+  return data.body.illust.data.filter(item => !item.isAdContainer)
 }

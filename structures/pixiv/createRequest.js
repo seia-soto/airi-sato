@@ -40,6 +40,9 @@ module.exports = async opts => {
     const response = await fetch(opts.url)
     const text = await response.text()
 
-    return text
+    return {
+      time: Date.now(),
+      content: text
+    }
   }
 }
