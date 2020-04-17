@@ -1,6 +1,6 @@
 {
   "name": "airi-sato",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "main": "index.js",
   "author": "Seia-Soto <seia@outlook.kr>",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "eventemitter3": "^4.0.0",
     "knex": "^0.20.13",
     "mysql2": "^2.1.0",
+    "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",
     "zlib-sync": "^0.1.6"
   },
