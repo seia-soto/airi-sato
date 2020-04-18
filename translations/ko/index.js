@@ -1,3 +1,4 @@
+module.exports.languageCode = 'ko'
 module.exports.languageName = 'Korean'
 module.exports.localizedLanguageName = '한국어'
 
