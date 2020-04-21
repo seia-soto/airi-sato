@@ -4,7 +4,6 @@ const cache = require('./cache')
 
 const defaultHeaders = {
   dnt: 1,
-  referer: 'https://www.pixiv.net/',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36'
 }
 const defaultHeaderNames = Object.keys(defaultHeaders)
@@ -14,7 +13,7 @@ module.exports = async opts => {
     return 0
   }
 
-  opts.url = 'https://www.pixiv.net' + opts.uri
+  opts.url = 'http://torrents.ohys.net' + opts.uri
   opts.headers = opts.headers || []
 
   for (let i = 0, l = defaultHeaderNames.length; i < l; i++) {
@@ -32,7 +31,7 @@ module.exports = async opts => {
       const response = await fetch(opts.url)
 
       cache[opts.uri].content = await response.text()
-      cache[opts.uri].time = Date.now() + 5 * 60 * 1000
+      cache[opts.uri].time = Date.now() + 1 * 60 * 1000
     }
 
     return cache[opts.uri]

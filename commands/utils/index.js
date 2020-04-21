@@ -1,5 +1,6 @@
 module.exports.color = require('./color')
 module.exports.find = require('./find')
 module.exports.help = require('./help')
+module.exports.ohys = require('./ohys')
 module.exports.ping = require('./ping')
 module.exports.pixiv = require('./pixiv')

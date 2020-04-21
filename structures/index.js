@@ -1,5 +1,6 @@
 module.exports.commands = require('./commands')
 module.exports.database = require('./database')
+module.exports.ohys = require('./ohys')
 module.exports.permissions = require('./permissions')
 module.exports.pixiv = require('./pixiv')
 module.exports.ratelimit = require('./ratelimit')
