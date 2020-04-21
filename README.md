@@ -7,10 +7,9 @@ The Discord automation application.
 
 ## Table of Contents
 
-- [Questions](#questions)
 - [Installation](#installation)
 - [Scripts](#scripts)
-- [Development](#development)
+- [Questions](#questions)
 
 ----
 
@@ -92,3 +91,8 @@ They created `cache` and a lot of abstract objects, but what actually they need 
 The code doesn't work as people expected, voice connection related things always crashes up since v11.6.1.
 In contrast, Eris.JS has stable and less-abstracted the code.
 I think I can express my application with Eris.JS more than Discord.JS.
+
+## How to manage the version of the project?
+
+You need to use `git` as the version management system since I pushes the update to GitHub.
+Pull the repository and get the latest update via resetting your local.
