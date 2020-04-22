@@ -19,15 +19,14 @@ module.exports = async opts => {
     const audioURL = await restyGoogleTranslate.tts(opts)
     const response = await fetch(audioURL)
 
-    const cacheFileStream = fs.createWriteStream(cacheFilePath)
-    const writableStream = response.body.pipe(cacheFileStream)
-
     if (cache[hash] !== 0) {
+      const cacheFileStream = fs.createWriteStream(cacheFilePath)
+
       cache[hash] = 0
 
       response.body
-        .pipe(writableStream)
-        .on('close', () => {
+        .pipe(cacheFileStream)
+        .on('finish', () => {
           cache[hash] = cacheFilePath
         })
     }
