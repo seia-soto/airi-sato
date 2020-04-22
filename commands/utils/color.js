@@ -14,14 +14,13 @@ module.exports = {
       return message.channel.createMessage(opts.translation.permissionLack)
     }
     if (!message.arguments.length) {
-      const roles = message.member.roles
       let removedRoleCount = 0
 
-      for (let i = 0, l = roles.length; i < l; i++) {
-        const colorRole = message.guild.roles.find(role => role.id === roles[i])
+      for (let i = 0, l = message.member.roles.length; i < l; i++) {
+        const colorRole = message.guild.roles.find(role => role.id === message.member.roles[i])
 
         if (re.name.test(colorRole.name)) {
-          await message.member.removeRole(roles[i])
+          await message.member.removeRole(message.member.roles[i])
 
           removedRoleCount++
         }
@@ -40,7 +39,15 @@ module.exports = {
       return message.channel.createMessage(opts.translation.invalidColorCode)
     }
 
-    const color = matched[1]
+    for (let i = 0, l = message.member.roles.length; i < l; i++) {
+      const colorRole = message.guild.roles.find(role => role.id === message.member.roles[i])
+
+      if (re.name.test(colorRole.name)) {
+        await message.member.removeRole(message.member.roles[i])
+      }
+    }
+
+    const color = matched[1].toLowerCase()
     const roleName = '#' + color
 
     let colorRole = await message.guild.roles.find(role => role.name === roleName)
