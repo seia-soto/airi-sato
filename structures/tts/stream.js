@@ -21,6 +21,8 @@ module.exports = async opts => {
   } else {
     const audioURL = await restyGoogleTranslate.tts(opts)
     const response = await fetch(audioURL)
+
+    // NOTE: Copy the original stream into PassThrough stream.
     const responseStreamProxy = new PassThrough()
 
     response.body.pipe(responseStreamProxy)
