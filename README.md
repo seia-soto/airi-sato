@@ -23,6 +23,7 @@ To install this project, you need to install following pre-requirements and depe
 - `NPM` (installed with `Node.JS`)
 - C++ Compiler
 - Python 2.7 (not version 3)
+- FFMPEG
 
 ### For production
 

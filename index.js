@@ -30,6 +30,7 @@ module.exports = (async () => {
   structures.permissions.deserialize()
   structures.commands.deserialize()
   structures.ratelimit.registerProfiles()
+  await structures.tts.registerCaches()
   await structures.database.createTables()
 
   for (let i = 0, l = handlerNames.length; i < l; i++) {
