@@ -6,12 +6,16 @@ module.exports = {
   fn: async (app, message, opts) => {
     const voiceState = message.member.voiceState
     const languageCode = message.member.settings.language.split('_')[0]
+    const text = message.arguments.join(' ').replace(/\n/g, ' ')
 
     if (!voiceState.channelID) {
       return message.channel.createMessage(opts.translation.voiceChannelNotFound)
     }
     if (!message.arguments.length) {
       return message.channel.createMessage(opts.translation.requestTextNotFound)
+    }
+    if (text.length > 250) {
+      return message.channel.createMessage(opts.translation.requestTextTooLong)
     }
     if (activeGuilds.includes(message.guild.id)) {
       return message.channel.createMessage(opts.translation.ratelimited)
@@ -30,7 +34,7 @@ module.exports = {
 
     const connection = await app.joinVoiceChannel(voiceState.channelID)
     const stream = await tts.stream({
-      text: message.arguments.join(' ').replace(/\n/g, ' '),
+      text,
       language: languageCode,
       hint: 'en'
     })
