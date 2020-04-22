@@ -2,9 +2,12 @@ const crypto = require('crypto')
 const fetch = require('node-fetch')
 const fs = require('fs')
 const path = require('path')
+const stream = require('stream')
 const restyGoogleTranslate = require('resty-google-translate')
 
 const cache = require('./cache')
+
+const { PassThrough } = stream
 
 module.exports = async opts => {
   opts.text = opts.text.replace(/\n/g, ' ')
@@ -18,19 +21,24 @@ module.exports = async opts => {
   } else {
     const audioURL = await restyGoogleTranslate.tts(opts)
     const response = await fetch(audioURL)
+    const responseStreamProxy = new PassThrough()
 
-    if (cache[hash] !== 0) {
+    response.body.pipe(responseStreamProxy)
+
+    if (cache[hash] !== -1) {
+      const cacheFileStreamProxy = new PassThrough()
       const cacheFileStream = fs.createWriteStream(cacheFilePath)
 
-      cache[hash] = 0
+      cache[hash] = -1
 
       response.body
+        .pipe(cacheFileStreamProxy)
         .pipe(cacheFileStream)
         .on('finish', () => {
           cache[hash] = cacheFilePath
         })
     }
 
-    return response.body
+    return responseStreamProxy
   }
 }
