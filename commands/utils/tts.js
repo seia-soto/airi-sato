@@ -82,11 +82,8 @@ module.exports = {
 
         connection.play(stream)
       } else {
-        setTimeout(() => {
-          if (!activeGuilds.includes(message.guild.id)) {
-            app.leaveVoiceChannel(voiceState.channelID)
-          }
-        }, 30 * 1000)
+        app.leaveVoiceChannel(voiceState.channelID)
+
         setTimeout(() => {
           activeGuilds.splice(activeGuilds.findIndex(guild => guild === message.guild.id), 1)
         }, 2 * 1000)
