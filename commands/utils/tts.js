@@ -6,10 +6,12 @@ const tts = require('../../structures/tts')
 const assetsPath = path.join(__dirname, '..', '..', 'assets')
 
 const modeFeaturedSounds = {
-  twip: path.join(assetsPath, 'twip_tts_Coins.mp3')
+  twip: path.join(assetsPath, 'twip_tts_Coins.mp3'),
+  toon: path.join(assetsPath, 'toon_tts_Alert.mp3')
 }
 const availableModes = [
-  'twip'
+  'twip',
+  'toon'
 ]
 const activeGuilds = []
 
