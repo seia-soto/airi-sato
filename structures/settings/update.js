@@ -4,8 +4,6 @@ const debug = require('./debug')
 
 module.exports = async (type, data) => {
   try {
-    debug(`updating '${type}' settings: ${data.serviceId}`)
-
     cache[type][data.serviceId] = data
 
     await knex(type)

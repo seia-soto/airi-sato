@@ -9,16 +9,12 @@ module.exports = async (type, serviceId) => {
     cache[type] = cache[type] || {}
 
     if (!cache[type][serviceId]) {
-      debug(`fetching '${type}' settings from database: ${serviceId}`)
-
       let [item] = await knex(type)
         .select('*')
         .where({
           serviceId
         })
       if (!item) {
-        debug(`creating new settings object because '${type}' settings are not available`)
-
         const initialData = {
           serviceId,
           ...settings.defaults[type]

@@ -9,8 +9,6 @@ module.exports = () => {
     const permission = permissions[i]
     const flag = 1 << i
 
-    debug(`assign flag '${flag}' to '${permission.name}' permission node`)
-
     permission.flag = flag
 
     levels[permission.name] = permission

@@ -3,7 +3,7 @@ const path = require('path')
 
 const cache = require('./cache')
 
-module.exports = async () => {
+module.exports = () => {
   const cachePath = path.join(__dirname, '..', '..', 'bin', 'tts')
 
   if (!fs.existsSync(cachePath)) {

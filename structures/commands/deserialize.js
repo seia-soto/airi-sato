@@ -12,8 +12,6 @@ module.exports = () => {
     const commands = categories[categoryNames[i]]
     const commandNames = Object.keys(commands)
 
-    debug(`deserializing '${categoryNames[i]}' categorized commands`)
-
     for (let k = 0, s = commandNames.length; k < s; k++) {
       const command = commands[commandNames[k]]
 
@@ -29,14 +27,10 @@ module.exports = () => {
 
       collection[commandNames[k]] = command
 
-      debug(`registering '${command.name}' command with ${command.permissions.join(', ')} permission`)
-
       for (let j = 0, n = command.aliases.length; j < n; j++) {
         const commandObj = Object.assign({ alias: true }, command)
 
         collection[command.aliases[j]] = commandObj
-
-        debug(`creating '${command.aliases[j]}' alias of '${command.name}' command`)
       }
     }
   }

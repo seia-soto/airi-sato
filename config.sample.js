@@ -29,7 +29,11 @@ module.exports = {
         'USER_UPDATE',
         'VOICE_STATE_UPDATE'
       ],
-      disableEveryone: true,
+      allowedMentions: {
+        everyone: false,
+        roles: false,
+        users: true
+      },
       largeThreshold: 25,
       messageLimit: 25,
       opusOnly: true
