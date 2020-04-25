@@ -2521,7 +2521,7 @@ restore-cursor@^3.1.0:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
 
-resty-google-translate@^1.0.0:
+resty-google-translate@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/resty-google-translate/-/resty-google-translate-1.0.3.tgz#8407eb46b1f756a8a37bece99ae5d8256a87c7a5"
   integrity sha512-fFOj/3WEV8YH24UfBnVQNleLkEOtZMA9OtQHGH4AizfLeJYge5qN48+GefC61bv3k17UPBjqLsUUvkycYTaPTQ==

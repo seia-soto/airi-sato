@@ -19,7 +19,7 @@
     "mysql2": "^2.1.0",
     "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",
-    "resty-google-translate": "^1.0.0",
+    "resty-google-translate": "^1.0.3",
     "zlib-sync": "^0.1.6"
   },
   "devDependencies": {
