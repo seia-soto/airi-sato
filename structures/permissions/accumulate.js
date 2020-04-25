@@ -1,5 +1,4 @@
 const { permissions } = require('../../config')
-const debug = require('./debug')
 
 module.exports = async member => {
   let flag = 0
@@ -28,8 +27,6 @@ module.exports = async member => {
     for (let k = i; k < l; k++) {
       flag = flag | 1 << k
     }
-
-    debug(`applying all subsequence permission of '${permission.name} (${flag})' to '${member.username} (${member.id})'`)
 
     break
   }

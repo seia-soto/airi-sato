@@ -5,5 +5,6 @@ module.exports = {
   ratelimited: '과도한 API 요청을 막기 위해 명령어 사용이 제한되어 이미 TTS가 실행 중이거나 최근에 실행한 경우에는 잠시 후에 다시시도해야 한다고 미사카는 말해줍니다.',
   voiceConnectPermissionLack: '음성 채널에 연결할 권한이 부족하여 자신만 차별하는 것이라고 오해한 미사카는 삐져서 돌아갑니다.',
   voiceSpeakPermissionLack: '음성 채널에서 말할 권한이 부족하다고 미사카는 소리없이 버둥댑니다.',
-  playingTTS: 'TTS 음성을 재생 중이라고 미사카는 알려줍니다.'
+  playingTTS: 'TTS 음성을 재생 중이라고 미사카는 알려줍니다.',
+  functionDisabled: '현재 이 추가 기능은 비활성화되어 있다고 미사카는 조용히 지적합니다.'
 }

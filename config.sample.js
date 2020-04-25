@@ -90,7 +90,8 @@ module.exports = {
   },
   flags: {
     guilds: [
-      'color'
+      'color',
+      'tts'
     ],
     users: []
   },

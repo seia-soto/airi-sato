@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const tts = require('../../structures/tts')
+const { flags } = require('../../config')
 
 const assetsPath = path.join(__dirname, '..', '..', 'assets')
 
@@ -17,6 +18,9 @@ const activeGuilds = []
 
 module.exports = {
   fn: async (app, message, opts) => {
+    if (!(message.guild.settings.flag & 1 << flags.guilds.indexOf('tts'))) {
+      return message.channel.createMessage(opts.translation.functionDisabled)
+    }
     const voiceState = message.member.voiceState
     const languageCode = message.member.settings.language.split('_')[0]
 
