@@ -4,7 +4,7 @@ module.exports = {
   fn: async (app, message, opts) => {
     const embed = {
       title: opts.translation.title,
-      description: opts.translation.description,
+      description: opts.translation.description.bind({ clientID: app.user.id }),
       fields: []
     }
     const commandNames = Object.keys(collection)

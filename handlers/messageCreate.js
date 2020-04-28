@@ -48,13 +48,13 @@ module.exports = async (app, message) => {
   const translation = translations[message.member.settings.language].commands[command.name]
 
   try {
-    command.fn(app, message, {
+    await command.fn(app, message, {
       translation
     })
   } catch (error) {
     log(error)
 
-    message.channel.createMessage(translation.system.unexpectedErrorWhileCommandExecution)
+    message.channel.createMessage(translations[message.member.settings.language].system.unexpectedErrorWhileCommandExecution)
   } finally {
     ratelimit.accumulate('command', message.member.id)
   }
