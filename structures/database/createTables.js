@@ -1,8 +1,7 @@
-const schemas = require('./schemas')
 const debug = require('./debug')
 const knex = require('./knex')
 
-module.exports = async () => {
+module.exports = async (schemas) => {
   const schemaNames = Object.keys(schemas)
 
   for (let i = 0, l = schemaNames.length; i < l; i++) {

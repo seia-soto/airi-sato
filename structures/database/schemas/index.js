@@ -1,2 +1,1 @@
-module.exports.guilds = require('./guilds')
-module.exports.users = require('./users')
+module.exports['v1.9.0'] = require('./v1.9.0')
