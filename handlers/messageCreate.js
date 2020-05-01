@@ -6,9 +6,6 @@ const {
   test
 } = require('../structures')
 const translations = require('../translations')
-const debug = require('./debug')
-
-const log = debug('messageCreate')
 
 module.exports = async (app, message) => {
   message.guild = message.channel.guild
@@ -52,7 +49,7 @@ module.exports = async (app, message) => {
       translation
     })
   } catch (error) {
-    log(error)
+    console.log(error)
 
     message.channel.createMessage(translations[message.member.settings.language].system.unexpectedErrorWhileCommandExecution)
   } finally {

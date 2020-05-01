@@ -1,6 +1,6 @@
 {
   "name": "airi-sato",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "main": "index.js",
   "author": "Seia-Soto <seia@outlook.kr>",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "mysql2": "^2.1.0",
     "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",
+    "readimage": "^1.1.1",
     "resty-google-translate": "^1.0.3",
     "zlib-sync": "^0.1.6"
   },

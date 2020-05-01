@@ -1,8 +1,23 @@
+const fetch = require('node-fetch')
+const readimage = require('readimage')
+
 const { flags } = require('../../config')
 
 const re = {
-  input: /#?([A-Fa-f\d]{3,6})/i,
+  input: /(auto)|#?([A-Fa-f\d]{3,6})/i,
   name: /#([A-Fa-f\d]{3,6})/i
+}
+
+const readImage = imageBuffer => {
+  return new Promise((resolve, reject) => {
+    readimage(imageBuffer, (error, image) => {
+      if (error) {
+        reject(error)
+      }
+
+      resolve(image)
+    })
+  })
 }
 
 module.exports = {
@@ -47,9 +62,30 @@ module.exports = {
       }
     }
 
-    const color = matched[1].toLowerCase()
-    const roleName = '#' + color
+    let color = matched[1].toLowerCase()
 
+    if (color === 'auto') {
+      const response = await fetch(message.member.avatarURL)
+      const imageBuffer = await response.buffer()
+      const imageData = await readImage(imageBuffer)
+      const imageFrame = imageData.frames[0].data
+      const pixelRate = 4
+      const pixels = new Array(pixelRate).fill(0)
+
+      for (let i = 0, l = imageFrame.length; i < l; i += pixelRate) {
+        for (let k = 0; k < pixelRate; k++) {
+          pixels[k] += imageFrame[i + k]
+        }
+      }
+      for (let i = 0; i < pixelRate - 1/* Except for `alpha` */; i++) {
+        pixels[i] = ~~(pixels[i] / (imageFrame.length / pixelRate))
+        pixels[i] = (pixels[i] | 1 << 8).toString(16).slice(1)
+      }
+
+      color = pixels.splice(0, 3).join('')
+    }
+
+    const roleName = '#' + color
     let colorRole = await message.guild.roles.find(role => role.name === roleName)
 
     if (!colorRole) {
