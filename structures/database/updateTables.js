@@ -5,8 +5,10 @@ const debug = require('./debug')
 const knex = require('./knex')
 
 module.exports = async () => {
+  const targetVersion = pkg.version.split('.')
+
   if (!await knex.schema.hasTable('app')) {
-    if (pkg.version.replace(/[a-zA-Z\W]/g, '') <= '180') {
+    if (Number(targetVersion[1]) <= 8) {
       debug('the version of database schema is lower than v1.9.0')
       debug('creating metadata table to start integration')
 
@@ -25,9 +27,21 @@ module.exports = async () => {
 
   const versions = Object.keys(schemas)
 
-  for (let i = versions.indexOf(schemaVersion) + 1, l = versions.indexOf('v' + pkg.version); i <= l; i++) {
-    debug(`updating database schema version to ${versions[i]}`)
+  while (versions.indexOf(`v${targetVersion.join('.')}`) === -1) {
+    if (Number(targetVersion[1]) <= 8) {
+      break
+    }
 
-    await schemas[versions[i]]()
+    debug(`skipping target version of database schema version v${targetVersion.join('.')} because not found`)
+
+    targetVersion[1] -= 1
+  }
+
+  for (let i = versions.indexOf(schemaVersion), l = versions.indexOf(`v${targetVersion.join('.')}`); i <= l; i++) {
+    if (schemas[versions[i]]) {
+      debug(`updating database schema version to ${versions[i]}`)
+
+      await schemas[versions[i]]()
+    }
   }
 }
