@@ -34,7 +34,11 @@ module.exports = async () => {
 
     debug(`skipping target version of database schema version v${targetVersion.join('.')} because not found`)
 
-    targetVersion[1] -= 1
+    if (targetVersion[2] === 0) {
+      targetVersion[1] -= 1
+    } else {
+      targetVersion[2] -= 1
+    }
   }
 
   for (let i = versions.indexOf(schemaVersion), l = versions.indexOf(`v${targetVersion.join('.')}`); i <= l; i++) {
