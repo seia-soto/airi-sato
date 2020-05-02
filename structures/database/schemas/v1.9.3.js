@@ -36,5 +36,5 @@ const schemas = {
 
 module.exports = async () => {
   await createTables(schemas)
-  await createMetadata('v1.9.0')
+  await createMetadata('v1.9.3')
 }

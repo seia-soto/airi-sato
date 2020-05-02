@@ -4,7 +4,7 @@ const readimage = require('readimage')
 const { flags } = require('../../config')
 
 const re = {
-  input: /(auto)|#?([A-Fa-f\d]{3,6})/i,
+  input: /#?([A-Fa-f\d]{3,6})|(auto)/i,
   name: /#([A-Fa-f\d]{3,6})/i
 }
 
@@ -62,7 +62,7 @@ module.exports = {
       }
     }
 
-    let color = matched[1].toLowerCase()
+    let color = (matched[1] || '').toLowerCase()
 
     if (color === 'auto') {
       const response = await fetch(message.member.avatarURL)
@@ -82,7 +82,7 @@ module.exports = {
         pixels[i] = (pixels[i] | 1 << 8).toString(16).slice(1)
       }
 
-      color = pixels.splice(0, 3).join('')
+      color = pixels.splice(0, 3).join('').toLowerCase()
     }
 
     const roleName = '#' + color
