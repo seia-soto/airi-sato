@@ -57,7 +57,7 @@ module.exports = {
     for (let i = 0, l = message.member.roles.length; i < l; i++) {
       const colorRole = message.guild.roles.find(role => role.id === message.member.roles[i])
 
-      if (re.name.test(colorRole.name)) {
+      if (colorRole && re.name.test(colorRole.name)) {
         await message.member.removeRole(message.member.roles[i])
       }
     }
