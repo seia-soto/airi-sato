@@ -4,7 +4,7 @@ const readimage = require('readimage')
 const { flags } = require('../../config')
 
 const re = {
-  input: /#?([A-Fa-f\d]{3,6})|(auto)/i,
+  input: /(auto)|#?([A-Fa-f\d]{3,6})/i,
   name: /#([A-Fa-f\d]{3,6})/i
 }
 
@@ -62,7 +62,7 @@ module.exports = {
       }
     }
 
-    let color = (matched[1] || '').toLowerCase()
+    let color = (matched[1] || matched[2]).toLowerCase()
 
     if (color === 'auto') {
       const response = await fetch(message.member.avatarURL)
