@@ -76,7 +76,10 @@ module.exports = {
     if (mode) {
       const featuredSoundStream = fs.createReadStream(modeFeaturedSounds[mode])
 
-      connection.play(featuredSoundStream)
+      connection.play(featuredSoundStream, {
+        inlineVolume: true
+      })
+      connection.setVolume(0.7)
     } else {
       connection.play(stream)
     }
