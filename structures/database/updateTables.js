@@ -34,7 +34,7 @@ module.exports = async () => {
 
     debug(`skipping target version of database schema version v${targetVersion.join('.')} because not found`)
 
-    if (targetVersion[2] === 0) {
+    if (Number(targetVersion[2]) === 0) {
       targetVersion[1] -= 1
     } else {
       targetVersion[2] -= 1
