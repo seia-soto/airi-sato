@@ -52,7 +52,7 @@ module.exports = {
               id: pendingTicket.id
             })
 
-          return message.channel.send(opts.translations.ticketGuildUpdated)
+          return message.channel.send(opts.translation.ticketGuildUpdated)
         }
       }
     } else {
@@ -63,7 +63,7 @@ module.exports = {
           status: 'pending'
         })
 
-      return message.channel.send(opts.translations.ticketCreated)
+      return message.channel.send(opts.translation.ticketCreated)
     }
   },
   aliases: [
