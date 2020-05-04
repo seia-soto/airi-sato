@@ -57,7 +57,7 @@ Move `config.sample.js` to `config.js` and fill out the blanks.
 
 # Scripts
 
-## `yarn debug`
+## `yarn debug-<type>`
 
 Allow application to log from all modules.
 
@@ -65,10 +65,11 @@ Allow application to log from all modules.
 - DEBUG: *
 
 ```sh
-yarn debug
+yarn debug-app
+yarn debug-web
 ```
 
-## `yarn start`
+## `yarn start-<type>`
 
 Allow application to log from `airi-sato` modules.
 
@@ -76,7 +77,24 @@ Allow application to log from `airi-sato` modules.
 - DEBUG: airi-sato*
 
 ```sh
-yarn start
+yarn start-app
+yarn start-web
+```
+
+## `yarn dev`
+
+Launch both `app` and `web` workers.
+
+```sh
+yarn dev
+```
+
+## `yarn prod`
+
+Start PM2 daemon with given profile (ecosystem.config.js).
+
+```sh
+yarn prod
 ```
 
 # Questions

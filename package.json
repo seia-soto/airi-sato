@@ -5,14 +5,19 @@
   "author": "Seia-Soto <seia@outlook.kr>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node .",
-    "debug": "cross-env ENV=DEVELOPMENT DEBUG=* node ."
+    "start-app": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node .",
+    "debug-app": "cross-env ENV=DEVELOPMENT DEBUG=* node .",
+    "start-web": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node ./webProvider",
+    "debug-web": "cross-env ENV=DEVELOPMENT DEBUG=* node ./webProvider",
+    "dev": "concurrently -n app,web 'npm:start-app' 'npm:start-web'",
+    "prod": "pm2 start ecosystem.config.js"
   },
   "engine": {
     "node": "10.x"
   },
   "dependencies": {
     "bufferutil": "^4.0.1",
+    "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "debug": "^4.1.1",
     "eris": "^0.12.0",

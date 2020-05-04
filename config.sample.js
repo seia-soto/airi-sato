@@ -40,7 +40,7 @@ module.exports = {
     }
   },
   web: {
-    port: 3000
+    port: 2199
   },
   database: {
     client: 'sqlite3',
