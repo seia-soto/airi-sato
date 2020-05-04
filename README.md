@@ -19,7 +19,7 @@ The Discord automation application.
 
 To install this project, you need to install following pre-requirements and dependencies.
 
-- `Node.JS` v10 or higher
+- `Node.JS` v10
 - `NPM` (installed with `Node.JS`)
 - C++ Compiler
 - Python 2.7 (not version 3)
