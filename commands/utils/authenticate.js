@@ -20,6 +20,7 @@ module.exports = {
       })
     if (tickets.length) {
       const activeTicket = tickets.find(ticket => ticket.guildId === guildId && ticket.status === 'active')
+      const pendingTicket = tickets.find(ticket => ticket.status === 'pending')
 
       if (activeTicket) {
         let verifiedRole = message.guild.roles.find(role => role.name === 'airi-sato.verified')
@@ -36,11 +37,7 @@ module.exports = {
         await message.member.addRole(verifiedRole.id)
 
         return message.channel.createMessage(opts.translation.appliedVerifiedRole)
-      }
-
-      const pendingTicket = tickets.find(ticket => ticket.status === 'pending')
-
-      if (pendingTicket) {
+      } else if (pendingTicket) {
         if (pendingTicket.guildId === guildId) {
           return message.channel.createMessage(opts.translation.statusNotUpdated)
         } else {
@@ -54,6 +51,15 @@ module.exports = {
 
           return message.channel.createMessage(opts.translation.ticketGuildUpdated)
         }
+      } else {
+        await knex('authentications')
+          .insert({
+            serviceId,
+            guildId,
+            status: 'pending'
+          })
+
+        return message.channel.createMessage(opts.translation.ticketCreated)
       }
     } else {
       await knex('authentications')
