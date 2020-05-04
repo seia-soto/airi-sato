@@ -35,14 +35,14 @@ module.exports = {
 
         await message.member.addRole(verifiedRole.id)
 
-        return message.channel.send(opts.translation.appliedVerifiedRole)
+        return message.channel.createMessage(opts.translation.appliedVerifiedRole)
       }
 
       const pendingTicket = tickets.find(ticket => ticket.status === 'pending')
 
       if (pendingTicket) {
         if (pendingTicket.guildId === guildId) {
-          return message.channel.send(opts.translation.statusNotUpdated)
+          return message.channel.createMessage(opts.translation.statusNotUpdated)
         } else {
           await knex('authentications')
             .update({
@@ -52,7 +52,7 @@ module.exports = {
               id: pendingTicket.id
             })
 
-          return message.channel.send(opts.translation.ticketGuildUpdated)
+          return message.channel.createMessage(opts.translation.ticketGuildUpdated)
         }
       }
     } else {
@@ -63,7 +63,7 @@ module.exports = {
           status: 'pending'
         })
 
-      return message.channel.send(opts.translation.ticketCreated)
+      return message.channel.createMessage(opts.translation.ticketCreated)
     }
   },
   aliases: [
