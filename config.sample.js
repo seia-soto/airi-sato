@@ -39,9 +39,6 @@ module.exports = {
       opusOnly: true
     }
   },
-  web: {
-    port: 2199
-  },
   database: {
     client: 'sqlite3',
     connection: {
