@@ -1,4 +1,3 @@
-module.exports.authenticate = require('./authenticate')
 module.exports.baekjoon = require('./baekjoon')
 module.exports.color = require('./color')
 module.exports.find = require('./find')

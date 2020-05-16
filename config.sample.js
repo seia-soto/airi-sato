@@ -94,8 +94,7 @@ module.exports = {
   flags: {
     guilds: [
       'color',
-      'tts',
-      'authentication'
+      'tts'
     ],
     users: []
   },

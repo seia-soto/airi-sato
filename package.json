@@ -1,15 +1,12 @@
 {
   "name": "airi-sato",
-  "version": "1.10.3",
+  "version": "1.10.4",
   "main": "index.js",
   "author": "Seia-Soto <seia@outlook.kr>",
   "license": "MIT",
   "scripts": {
-    "start-app": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node .",
-    "debug-app": "cross-env ENV=DEVELOPMENT DEBUG=* node .",
-    "start-web": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node ./webProvider",
-    "debug-web": "cross-env ENV=DEVELOPMENT DEBUG=* node ./webProvider",
-    "dev": "concurrently -n app,web 'npm:start-app' 'npm:start-web'",
+    "start": "cross-env ENV=PRODUCTION DEBUG=airi-sato* node .",
+    "debug": "cross-env ENV=DEVELOPMENT DEBUG=* node .",
     "prod": "pm2 start ecosystem.config.js"
   },
   "engine": {
@@ -17,16 +14,12 @@
   },
   "dependencies": {
     "bufferutil": "^4.0.1",
-    "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "debug": "^4.1.1",
     "eris": "^0.12.0",
     "erlpack": "abalabahaha/erlpack",
     "eventemitter3": "^4.0.0",
     "knex": "^0.21.1",
-    "koa": "^2.11.0",
-    "koa-body": "^4.1.1",
-    "koa-router": "^8.0.8",
     "mysql2": "^2.1.0",
     "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",

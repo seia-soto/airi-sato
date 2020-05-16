@@ -45,7 +45,7 @@ module.exports = async () => {
     if (schemas[versions[i]]) {
       debug(`updating database schema version to ${versions[i]}`)
 
-      await schemas[versions[i]]()
+      await schemas[versions[i]](knex)
     }
   }
 }
