@@ -121,3 +121,7 @@ config.js
 # Post-used assets
 
 bin/
+
+# Visual Studio Code
+
+.vscode
