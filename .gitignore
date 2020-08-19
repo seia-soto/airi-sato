@@ -117,6 +117,7 @@ dist
 # Post-used assets
 
 .data
+config.js
 
 # Visual Studio Code
 
