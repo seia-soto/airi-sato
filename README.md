@@ -19,7 +19,7 @@ The Discord automation application.
 
 To install this project, you need to install following pre-requirements and dependencies.
 
-- `Node.JS` v10
+- `Node.JS` v8 ~ v10
 - `NPM` (installed with `Node.JS`)
 - C++ Compiler
 - Python 2.7 (not version 3)
@@ -57,36 +57,20 @@ Move `config.sample.js` to `config.js` and fill out the blanks.
 
 # Scripts
 
-## `yarn debug-<type>`
+## `yarn debug`
 
-Allow application to log from all modules.
-
-- ENV: DEVELOPMENT
-- DEBUG: *
+Launch application with full logs.
 
 ```sh
-yarn debug-app
-yarn debug-web
+yarn debug
 ```
 
-## `yarn start-<type>`
+## `yarn start`
 
-Allow application to log from `airi-sato` modules.
-
-- ENV: PRODUCTION
-- DEBUG: airi-sato*
+Launch application with important logs.
 
 ```sh
-yarn start-app
-yarn start-web
-```
-
-## `yarn dev`
-
-Launch both `app` and `web` workers.
-
-```sh
-yarn dev
+yarn start
 ```
 
 ## `yarn prod`
