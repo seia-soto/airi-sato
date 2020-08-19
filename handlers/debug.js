@@ -1,8 +1,6 @@
-const debug = require('debug')
+const createLogger = require('../structures/utils/createLogger')
 
-const pkg = require('../package')
-
-const log = debug(`${pkg.name}:handlers`)
+const log = createLogger('handlers')
 
 module.exports = type => {
   return message => log(`<${type}> ${message}`)

@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    token: '',
+    token: 'NjMxNDM3MTM2ODAxMDM4MzQ2.XZ21qA.jEV6UCUM9Ct-sGqOWtXQQdQdb0c',
     options: {
       autoconnect: true,
       compress: true,
@@ -39,10 +39,13 @@ module.exports = {
       opusOnly: true
     }
   },
+  web: {
+    port: 2199
+  },
   database: {
     client: 'sqlite3',
     connection: {
-      filename: './bin/main.db'
+      filename: './.data/data.db'
     }
   },
   permissions: [
@@ -50,7 +53,7 @@ module.exports = {
       name: 'staff',
       terms: {
         id: [
-          '' // NOTE: Developer's user ID.
+          '324541397988409355' // NOTE: Developer's user ID.
         ]
       }
     },
@@ -69,7 +72,7 @@ module.exports = {
   ratelimit: {
     command: {
       historyExpiresIn: 2 * 1000,
-      maxRequestSize: 4
+      maxRequestSize: 2
     },
     'command.find': {
       historyExpiresIn: 4 * 1000,
@@ -79,7 +82,7 @@ module.exports = {
   settings: {
     defaults: {
       guilds: {
-        prefix: 'se',
+        prefix: 'sn',
         flag: 0
       },
       users: {

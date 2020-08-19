@@ -31,7 +31,7 @@ module.exports = (async () => {
   structures.commands.deserialize()
   structures.ratelimit.registerProfiles()
   structures.tts.registerCaches()
-  await structures.database.updateTables()
+  await structures.database.createTablesIfNotExists()
 
   for (let i = 0, l = handlerNames.length; i < l; i++) {
     debug(`registering new event handler: ${handlerNames[i]}`)

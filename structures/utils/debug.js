@@ -1,3 +1,3 @@
 const createLogger = require('../utils/createLogger')
 
-module.exports = createLogger('database')
+module.exports = createLogger('utils')

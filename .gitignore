@@ -114,13 +114,9 @@ dist
 .yarn/build-state.yml
 .pnp.*
 
-# Project files
-
-config.js
-
 # Post-used assets
 
-bin/
+.data
 
 # Visual Studio Code
 

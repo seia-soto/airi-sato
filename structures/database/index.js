@@ -1,5 +1,4 @@
-module.exports.schemas = require('./schemas')
-module.exports.createTables = require('./createTables')
+module.exports.tables = require('./tables')
+module.exports.createTablesIfNotExists = require('./createTablesIfNotExists')
 module.exports.debug = require('./debug')
 module.exports.knex = require('./knex')
-module.exports.updateTables = require('./updateTables')

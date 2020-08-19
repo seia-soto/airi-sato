@@ -1,5 +1,3 @@
-const debug = require('debug')
+const createLogger = require('../utils/createLogger')
 
-const pkg = require('../../package')
-
-module.exports = debug(`${pkg.name}:permissions`)
+module.exports = createLogger('permissions')
